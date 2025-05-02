@@ -1,13 +1,30 @@
 import Link from "next/link";
+import {
+    SignInButton,
+    SignUpButton,
+    SignedIn,
+    SignedOut,
+    UserButton,
+} from '@clerk/nextjs'
 
-function Navbar(){
-    return(
+function Navbar() {
+    return (
         <nav className="fixed top-0 w-full flex items-center py-2 px-8 justify-between z-50 bg-slate-800 text-gray-300">
-        <Link href={'/'} className="uppercase font-bold text-md h-12 flex items-center">
-          Pandas Pet
-        </Link>
+            <Link href={'/'} className="uppercase font-bold text-md h-12 flex items-center">
+                Pandas Pet
+            </Link>
+            <div className="flex items-center gap-8">
+                <SignedOut>
+                    <SignInButton />
+                    <SignUpButton />
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
 
-      </nav>
+            </div>
+
+        </nav>
     )
 }
 
